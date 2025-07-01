@@ -1,0 +1,331 @@
+:root {
+    --fundo: #0F0F0F;
+    --destaques: #1F1F1F;
+    --textos: #FFFFFF;
+    --roxo: #6A00F4;
+    --ciano: #00F5FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fundo);
+    color: var(--textos);
+    font-family: 'Roboto Mono', monospace;
+}
+
+header {
+    background-color: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--destaques);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo a {
+    color: var(--ciano);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px var(--ciano);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+header nav a {
+    color: var(--textos);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--ciano);
+    text-shadow: 0 0 8px var(--ciano);
+}
+
+.secao {
+    min-height: 100vh;
+    padding: 100px 5% 60px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.secao-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 130px;
+}
+
+.titulo-secao {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: var(--roxo);
+    text-shadow: 0 0 10px var(--roxo);
+    text-align: center;
+}
+
+#apresentacao .apresentacao-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+#apresentacao .apresentacao-texto {
+    max-width: 600px;
+}
+
+#apresentacao h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#apresentacao .destaque-ciano {
+    color: var(--ciano);
+    text-shadow: 0 0 10px var(--ciano);
+}
+
+#apresentacao h2 {
+    font-size: 1.5rem;
+    color: var(--textos);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+#apresentacao p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+#apresentacao .apresentacao-imagem img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--roxo);
+    box-shadow: 0 0 20px var(--roxo);
+    transition: transform 0.4s ease;
+}
+
+#apresentacao .apresentacao-imagem img:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid var(--ciano);
+    color: var(--ciano);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--ciano);
+    color: var(--fundo);
+    box-shadow: 0 0 15px var(--ciano);
+}
+
+.button-projects {
+    margin-top: 50px;
+}
+
+.pjt-button {
+    padding: 1.5rem 5.5rem;
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--ciano);
+    border: 2px solid var(--ciano);
+    border-radius: 5px;
+    color: var(--fundo);
+    font-weight: 600;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: box-shadow 0.4s ease;
+}
+
+.pjt-button:hover {
+    box-shadow: 0 0 25px var(--ciano);
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.projeto-card {
+    background-color: var(--destaques);
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--roxo), transparent);
+    transition: all 0.5s ease;
+
+}
+
+.projeto-card:hover::before {
+   left: 100%;
+
+}
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 45px rgba(106, 0, 244, 0.801);
+
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.projeto-info {
+    padding: 1.5rem;
+}
+
+.projeto-info h3 {
+    color: var(--ciano);
+    margin-bottom: 0.5rem;
+}
+
+.projeto-info p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.projeto-tags span {
+    display: inline-block;
+    background: #333;
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 1rem;
+}
+
+.projeto-links a {
+    color: var(--roxo);
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 700;
+}
+
+.projeto-links a:hover {
+    text-decoration: underline;
+}
+
+.ferramentas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.ferramenta-item {
+    background-color: var(--destaques);
+    padding: 1.5rem 2rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 0.3s ease, border-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.ferramenta-item:hover {
+    transform: scale(1.1);
+    border-color: var(--ciano);
+    color: var(--ciano);
+    text-shadow: 0 0 8px var(--ciano);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background-color: var(--destaques);
+    border-top: 1px solid #333;
+}
+
+footer a {
+    color: var(--ciano);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    #apresentacao .apresentacao-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    #apresentacao .social-links {
+        justify-content: center;
+    }
+
+    .titulo-secao {
+        font-size: 2rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
